@@ -16,16 +16,16 @@ public class Main {
 
         // Fortsätter fråga tills användaren skriver 1 eller 2
         while (!option.equals("1") && !option.equals("2")) {
-            System.out.println("Välj vad du vill översätta:");
-            System.out.println("1. Text till morsekod");
-            System.out.println("2. Morsekod till text");
+            System.out.println("\nChoose what you want to translate:");
+            System.out.println("1. Text to Morse code");
+            System.out.println("2. Morse code to text");
 
             // Sparar användarens val
             option = scanner.nextLine();
 
             // Kontrollerar om valet är ogiltigt
             if (!option.equals("1") && !option.equals("2")) {
-                System.out.println("Ogiltigt val. Försök igen.\n");
+                System.out.println("\nInvalid choice. Try again.");
             }
         }
         // Skapar en tom variabel som sparar användarens inmatning
@@ -35,17 +35,17 @@ public class Main {
         while (input.trim().isEmpty()) {
             // Om användaren valt 1
             if (option.equals("1")) {
-                System.out.println("Skriv texten som ska översättas till morsekod:");
+                System.out.println("Enter the text to be translated into Morse code:");
                 // Om användaren valt 2
             } else {
-                System.out.println("Skriv morsekoden som ska översättas till text:");
+                System.out.println("Enter the Morse code to be translated into text:");
             }
             // Läser in användarens svar och sparar det
             input = scanner.nextLine();
 
             // Kontrollerar om inmatningen är tom
             if (input.trim().isEmpty()) {
-                System.out.println("Inmatningen får inte vara tom. Försök igen.");
+                System.out.println("The input cannot be empty. Please try again.");
             }
         }
         // Skickar valet och inmatningen till hanteraVal
@@ -59,7 +59,7 @@ public class Main {
 
         // Om inmatningen är tom, skicka felmeddelande
         if (input.trim().isEmpty()) {
-            return "Inmatningen får inte vara tom.";
+            return "The input must not be empty.";
         }
         // Om användaren valde 1
         if (option.equals("1")) {
@@ -73,7 +73,7 @@ public class Main {
 
             // Visar ett felmeddelande
         } else {
-            return "Ogiltigt val. Välj 1 eller 2.";
+            return "Invalid choice. Select 1 or 2.";
         }
     }
 }

@@ -27,11 +27,11 @@ public class MorseTranslatorTest {
 
         // Arrange
         MorseTranslator translator = new MorseTranslator();
-        String text ="HEJ";
+        String text ="HI";
 
         // Act
         String actual = translator.textToMorse(text);
-        String expected =".... . .---";
+        String expected =".... ..";
 
         // Assert
         assertEquals(expected, actual);
@@ -44,7 +44,7 @@ public class MorseTranslatorTest {
 
         // Act
         String actual = translator.textToMorse(text);
-        String expected = "Fel: tecknet 1 kan inte översättas.";
+        String expected = "Invalid input: the character 1 cannot be translated.";
 
         // Assert
         assertEquals(expected, actual);
@@ -53,11 +53,11 @@ public class MorseTranslatorTest {
     public void testMorseToWord() {
         // Arrange
         MorseTranslator translator = new MorseTranslator();
-        String morse =".... . .---";
+        String morse =".... ..";
 
         // Act
         String actual = translator.morseToText(morse);
-        String expected ="HEJ";
+        String expected ="HI";
 
         // Assert
         assertEquals(expected, actual);
@@ -70,7 +70,7 @@ public class MorseTranslatorTest {
 
         // Act
         String actual = translator.morseToText(morse);
-        String expected ="Fel: morsekoden ...... finns inte.";
+        String expected ="Invalid input: Morse Code ...... does not exist.";
 
         // Assert
         assertEquals(expected, actual);
@@ -79,38 +79,40 @@ public class MorseTranslatorTest {
     public void testInvalidCharacter() {
         // Arrange
         MorseTranslator translator = new MorseTranslator();
-        String text ="HEJ!";
+        String text ="HI!";
 
         // Act
         String actual = translator.textToMorse(text);
-        String expected ="Fel: tecknet ! kan inte översättas.";
+        String expected ="Invalid input: the character ! cannot be translated.";
 
         // Assert
         assertEquals(expected, actual);
     }
     @Test
-    public void testMenuVal1() {
+    public void testMenuVOption1() {
         // Arrange
         String val ="1";
-        String inmatning ="HEJ";
+        String inmatning ="HI";
 
         // Act
         String actual = Main.getOption(val, inmatning);
+        String expected =".... ..";
 
         // Assert
-        assertEquals(".... . .---", actual);
+        assertEquals(expected, actual);
     }
     @Test
-    public void testInvalidMenuVal() {
+    public void testInvalidMenuOption() {
         // Arrange
         String val ="5";
-        String inmatning ="HEJ";
+        String inmatning ="HI";
 
         // Act
         String actual = Main.getOption(val, inmatning);
+        String expected ="Invalid choice. Select 1 or 2.";
 
         // Assert
-        assertEquals("Ogiltigt val. Välj 1 eller 2.", actual);
+        assertEquals(expected, actual);
     }
     @Test
     public void testEmptyInput() {
@@ -120,9 +122,10 @@ public class MorseTranslatorTest {
 
         // Act
         String actual = Main.getOption(val, inmatning);
+        String expected ="The input must not be empty.";
 
         // Assert
-        assertEquals("Inmatningen får inte vara tom.", actual);
+        assertEquals(expected, actual);
     }
 }
 
