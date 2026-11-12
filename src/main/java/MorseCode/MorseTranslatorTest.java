@@ -91,11 +91,11 @@ public class MorseTranslatorTest {
     @Test
     public void testMenuVOption1() {
         // Arrange
-        String val ="1";
-        String inmatning ="HI";
+        String option ="1";
+        String input ="HI";
 
         // Act
-        String actual = Main.getOption(val, inmatning);
+        String actual = Main.getOption(option, input);
         String expected =".... ..";
 
         // Assert
@@ -104,11 +104,11 @@ public class MorseTranslatorTest {
     @Test
     public void testInvalidMenuOption() {
         // Arrange
-        String val ="5";
-        String inmatning ="HI";
+        String option ="5";
+        String input ="HI";
 
         // Act
-        String actual = Main.getOption(val, inmatning);
+        String actual = Main.getOption(option, input);
         String expected ="Invalid choice. Select 1 or 2.";
 
         // Assert
@@ -117,11 +117,11 @@ public class MorseTranslatorTest {
     @Test
     public void testEmptyInput() {
         // Arrange
-        String val = "1";
-        String inmatning = "   ";
+        String option = "1";
+        String input = "   ";
 
         // Act
-        String actual = Main.getOption(val, inmatning);
+        String actual = Main.getOption(option, input);
         String expected ="The input must not be empty.";
 
         // Assert
