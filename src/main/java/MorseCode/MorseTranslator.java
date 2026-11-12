@@ -5,9 +5,9 @@ import java.util.HashMap;
 public class MorseTranslator {
 
     // Skapar en hashmap som kopplar bokstav till morsekod
-    HashMap<Character, String> morseKoder = new HashMap<>();
+    HashMap<Character, String> morseCodes = new HashMap<>();
     // Skapar en hashmap som kopplar morsekod till bokstav
-    HashMap<String, Character> bokstaver = new HashMap<>();
+    HashMap<String, Character> letters = new HashMap<>();
 
     // Konstruktorn för MorseTranslator
     public MorseTranslator() {
@@ -19,7 +19,7 @@ public class MorseTranslator {
                 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
         };
         // Skapar en array för morsekoderna som bokstäverna ovan
-        String[] morsekoder = {
+        String[] morsecodes = {
                 ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..",
                 ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.",
                 "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."
@@ -27,62 +27,62 @@ public class MorseTranslator {
         // Går igenom arrayen med bokstäver, en i taget
         for (int i = 0; i < text.length; i++) {
             // Lägger in bokstaven och dess morsekod i hashmap
-            morseKoder.put(text[i], morsekoder[i]);
+            morseCodes.put(text[i], morsecodes[i]);
             // Lägger in morsekoden och dess bokstav i den omvända hashmap
-            bokstaver.put(morsekoder[i], text[i]);
+            letters.put(morsecodes[i], text[i]);
         }
     }
     // Översätter en text till morsekod
     public String textToMorse(String text) {
 
         // Skapar en variabel där morsekoderna sparas
-        String resultat = "";
+        String result = "";
 
         // Går igenom texten, en bokstav i taget
         for (int i = 0; i < text.length(); i++) {
 
             // Hämtar bokstaven från texten (och gör den till stor bokstav)
-            char bokstav = Character.toUpperCase(text.charAt(i));
+            char letter = Character.toUpperCase(text.charAt(i));
 
             // Om bokstaven finns i kartan hämtar vi dess morsekod
-            if (morseKoder.containsKey(bokstav)) {
+            if (morseCodes.containsKey(letter)) {
                 // Lägger till bokstavens morsekod och ett mellanslag
-                resultat += morseKoder.get(bokstav) + " ";
+                result += morseCodes.get(letter) + " ";
 
                 // Mellanslag i användarens text, gå vidare
-            } else if (bokstav == ' ') {
+            } else if (letter == ' ') {
 
                 // Felmeddelande vid fel tecken - Ej bokstav A-Z
             } else {
-                return "Fel: tecknet " + bokstav + " kan inte översättas.";
+                return "Invalid input: the character" + letter + " cannot be translated.";
             }
         }
         // Tar bort mellanslaget och skickar resultatet
-        return resultat.trim();
+        return result.trim();
     }
     // Översätter morsekod till text
     public String morseToText(String morse) {
 
         // Skapar en vriabel där bokstäver sparas
-        String resultat = "";
+        String result = "";
 
         // Splittar morsekoden vid mellanslagen och sparar koden i en array
-        String[] koder = morse.split(" ");
+        String[] codes = morse.split(" ");
 
         // Går igenom morsekoden, en i taget
-        for (int i = 0; i < koder.length; i++) {
+        for (int i = 0; i < codes.length; i++) {
 
             // Om koden finns i kartan lägger vi till motsvarande bokstav
-            if(bokstaver.containsKey(koder[i])) {
+            if (letters.containsKey(codes[i])) {
                 // Lägger till bokstaven som hör till morsekoden
-                resultat += bokstaver.get(koder[i]);
+                result += letters.get(codes[i]);
 
                 // Om koden saknas returneras ett felmeddelande
             } else {
-                return "Fel: morsekoden " + koder[i] + " finns inte.";
+                return "Fel: morsekoden " + codes[i] + " finns inte.";
             }
         }
         //Skickar resultatet
-        return resultat;
+        return result;
     }
 }

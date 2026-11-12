@@ -95,7 +95,7 @@ public class MorseTranslatorTest {
         String inmatning ="HEJ";
 
         // Act
-        String actual = Main.hanteraVal(val, inmatning);
+        String actual = Main.getOption(val, inmatning);
 
         // Assert
         assertEquals(".... . .---", actual);
@@ -107,7 +107,7 @@ public class MorseTranslatorTest {
         String inmatning ="HEJ";
 
         // Act
-        String actual = Main.hanteraVal(val, inmatning);
+        String actual = Main.getOption(val, inmatning);
 
         // Assert
         assertEquals("Ogiltigt val. Välj 1 eller 2.", actual);
@@ -119,7 +119,7 @@ public class MorseTranslatorTest {
         String inmatning = "   ";
 
         // Act
-        String actual = Main.hanteraVal(val, inmatning);
+        String actual = Main.getOption(val, inmatning);
 
         // Assert
         assertEquals("Inmatningen får inte vara tom.", actual);
