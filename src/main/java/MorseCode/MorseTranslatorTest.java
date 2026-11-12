@@ -86,6 +86,8 @@ public class MorseTranslatorTest {
         String expected ="Invalid input: the character ! cannot be translated.";
 
         // Assert
+        System.out.println("Expected=[" + expected + "] längd=" + expected.length());
+        System.out.println("Actual=[" + actual + "] längd=" + actual.length());
         assertEquals(expected, actual);
     }
     @Test

@@ -54,7 +54,7 @@ public class MorseTranslator {
 
                 // Felmeddelande vid fel tecken - Ej bokstav A-Z
             } else {
-                return "\nInvalid input: the character " + letter + " cannot be translated.";
+                return "Invalid input: the character " + letter + " cannot be translated.";
             }
         }
         // Tar bort mellanslaget och skickar resultatet
@@ -79,7 +79,7 @@ public class MorseTranslator {
 
                 // Om koden saknas returneras ett felmeddelande
             } else {
-                return "\nInvalid input: Morse Code " + codes[i] + " does not exist.";
+                return "Invalid input: Morse Code " + codes[i] + " does not exist.";
             }
         }
         //Skickar resultatet
