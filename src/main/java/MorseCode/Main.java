@@ -48,7 +48,7 @@ public class Main {
                 System.out.println("The input cannot be empty. Please try again.");
             }
         }
-        // Skickar valet och inmatningen till hanteraVal
+        // Skickar valet och inmatningen till getOption
         System.out.println(getOption(option, input));
     }
     // Hanterar användarens menyval, text och morsekod
